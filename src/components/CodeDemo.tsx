@@ -1,5 +1,9 @@
 
 import { Card } from "@/components/ui/card";
+// import { spaceTrim } from "@promptbook/utils";
+// <- Note: `@promptbook/utils` has some depencency issues with `crypto`
+import { spaceTrim } from "spacetrim";
+
 
 const CodeDemo = () => {
   return (
@@ -11,19 +15,18 @@ const CodeDemo = () => {
           </h2>
           <Card className="bg-[#1A1F2C] border-none p-6 font-mono text-sm">
             <pre className="text-gray-300">
-              <code>{`import { prompt, promptTemplate } from '@promptbook/utils';
+              <code>{
+              spaceTrim(`
+              
+                  import { prompt, promptTemplate } from '@promptbook/utils';
 
-const promptString1 = prompt\`
-    Correct the following sentence:
+                  const promptString1 = prompt\`
+                      Correct the following sentence:
 
-    > \${unsecureUserInput}
-\`;
+                      > \${unsecureUserInput}
+                  \`;
 
-const promptString2 = promptTemplate\`
-    Correct the following sentence:
-
-    > \${unsecureUserInput}
-\`;`}</code>
+              `)}</code>
             </pre>
           </Card>
           <p className="text-center text-gray-300 mt-8">
